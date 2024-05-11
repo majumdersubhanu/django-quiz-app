@@ -4,10 +4,14 @@
 {% block title %}Quiz List{% endblock %}
 
 {% block content %}
-<h2>Available Quizzes</h2>
-<ul class="list-group">
-  {% for quiz in quizzes %}
-  <li class="list-group-item"><a href="{% url 'attempt_quiz' quiz.id %}">{{ quiz.name }}</a></li>
-  {% endfor %}
-</ul>
+    <h2>Available Quizzes</h2>
+    <ul class="list-group">
+        {% for quiz in quizzes %}
+            <li class="list-group-item"><a href="{% url 'attempt_quiz' quiz.id %}">{{ quiz.name }}</a></li>
+        {% empty %}
+            <div class="alert alert-warning" role="alert">
+                No quiz was found.
+            </div>
+        {% endfor %}
+    </ul>
 {% endblock %}
