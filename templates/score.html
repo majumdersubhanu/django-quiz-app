@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Score Details</h2>
+    <p>Quiz: {{ attempt.quiz.name }}</p>
+    <p>Student: {{ attempt.student.username }}</p>
+    <p>Score: {{ attempt.score }}</p>
+    <a href="{% url 'quiz_list' %}">Back to Quiz List</a>
+{% endblock %}
